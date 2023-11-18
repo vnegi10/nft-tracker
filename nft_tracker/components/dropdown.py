@@ -10,3 +10,17 @@ def nft_dropdown():
     value = 'pudgy-penguins')
     
     return dropdown
+
+def orderby_dropdown():
+    dropdown = dcc.Dropdown(id = 'ORDER_BY',
+    options = [
+    {'label': 'h24_volume_native_asc', 'value':'h24_volume_native_asc' },
+    {'label': 'h24_volume_native_desc', 'value':'h24_volume_native_desc'},
+    {'label': 'h24_volume_usd_asc', 'value':'h24_volume_usd_asc'},
+    {'label': 'h24_volume_usd_desc', 'value':'h24_volume_usd_desc'},
+    {'label': 'market_cap_usd_asc', 'value':'market_cap_usd_asc'},
+    {'label': 'market_cap_usd_desc', 'value':'market_cap_usd_desc'}
+    ],
+    value = 'h24_volume_native_desc')
+    
+    return dropdown
