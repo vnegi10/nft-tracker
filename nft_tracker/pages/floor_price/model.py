@@ -7,6 +7,7 @@ def plot_nft_hist(nft_id, num_days):
     df_hist = get_nft_hist(nft_id, num_days)
     fig = df_hist.plot(title = f"Historical floor price for {nft_id}",
                        template = "seaborn",
-                       labels = dict(index = "Time", value = "Price [USD]"))
+                       labels = dict(index = "Time", value = "Price [USD]"),
+                       markers = True)
     fig = go.Figure(fig)
     return fig
