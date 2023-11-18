@@ -8,3 +8,12 @@ def duration_radiobutton():
     )
     
     return radio
+
+def entries_radiobutton():
+    radio = dcc.RadioItems(id = 'NUM_ENTRIES',
+    options = ['10', '20', '50', '75', '100'],
+    value = '10',
+    inline = True,
+    )
+    
+    return radio
