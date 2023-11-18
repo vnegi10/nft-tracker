@@ -1,7 +1,7 @@
 import pandas as pd
 from utils.api import get_response, PRO_URL, use_pro
 
-def get_nft_markets(num_entries, order_by):
+def get_nft_markets(order_by, num_entries):
     
     page_params = {
                     "per_page": num_entries,

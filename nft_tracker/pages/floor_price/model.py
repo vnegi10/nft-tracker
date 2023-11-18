@@ -13,8 +13,8 @@ def plot_nft_hist(nft_id, num_days):
     fig = go.Figure(fig)
     return fig
 
-def plot_nft_markets(num_entries, order_by):
-    df_nft_markets = get_nft_markets(num_entries, order_by)
+def plot_nft_markets(order_by, num_entries):
+    df_nft_markets = get_nft_markets(order_by, num_entries)
     fig = px.bar(df_nft_markets,
                  x = "id",
                  y = "floor_price_usd",
