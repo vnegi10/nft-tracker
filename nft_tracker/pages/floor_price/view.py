@@ -11,8 +11,9 @@ layout = html.Div(id = 'parent',
                   children = [
                   html.H1(id = 'H1', children = 'NFT Floor Price Tracker', 
                   style = {'textAlign':'center', 'marginTop':40, 'marginBottom':40}),
-                  
+
                   nft_dropdown(),
+                  html.Br(), # adds space between the rows
                   duration_radiobutton(),
                   
                   dcc.Graph(id = 'line_plot')
