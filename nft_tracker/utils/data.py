@@ -20,7 +20,8 @@ def get_nft_markets(order_by, num_entries):
                          floor_price_native = nft_select["floor_price"]["native_currency"],
                          floor_price_usd    = nft_select["floor_price"]["usd"],
                          market_cap_usd     = nft_select["market_cap"]["usd"],
-                         volume_24h_usd     = nft_select["volume_24h"]["usd"]
+                         volume_24h_usd     = nft_select["volume_24h"]["usd"],
+                         floor_price_change = nft_select["floor_price_in_usd_24h_percentage_change"]
                         )
         nft_all.append(temp_dict)
             

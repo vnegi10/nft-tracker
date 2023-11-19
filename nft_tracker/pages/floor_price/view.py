@@ -1,7 +1,7 @@
 import dash
 from dash import html
 from components.dropdown import *
-from components.radioitems import duration_radiobutton, entries_radiobutton
+from components.radioitems import *
 from dash import dcc
 
 APP_TITLE = "NFT Floor Price Tracker"
@@ -16,15 +16,16 @@ layout = html.Div(id = 'parent',
                   mode_dropdown(),
                   html.Br(), # adds space between the rows
 
-                  # NFT markets
+                  # Options for NFT markets
                   orderby_dropdown(),
                   html.Br(),
                   entries_radiobutton(),
-                  dcc.Graph(id = 'bar_plot'),
-
-                  # NFT historical data
+                  
+                  # Options for NFT historical data
                   nft_dropdown(),
                   html.Br(),
                   duration_radiobutton(),
-                  dcc.Graph(id = 'line_plot')
+
+                  # Add plot
+                  dcc.Graph(id = 'plot')
 ])
