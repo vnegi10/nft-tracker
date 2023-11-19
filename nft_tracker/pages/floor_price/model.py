@@ -1,5 +1,6 @@
 import plotly.graph_objects as go
 from utils.data import get_nft_hist, get_nft_markets
+from utils.helpers import set_colors
 import plotly.express as px
 from plotly.subplots import make_subplots
 
@@ -30,9 +31,11 @@ def plot_nft_markets(order_by, num_entries):
                   y = df_nft_markets.floor_price_usd),
                   row = 1, col = 1)
     
+    Y = df_nft_markets.floor_price_change
     fig.add_trace(go.Bar(
                   x = df_nft_markets.id,
-                  y = df_nft_markets.floor_price_change),
+                  y = Y,
+                  marker_color = set_colors(Y)),
                   row = 2, col = 1)
     
     fig.update_layout(height = 750,
