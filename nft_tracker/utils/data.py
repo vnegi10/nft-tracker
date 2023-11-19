@@ -47,6 +47,6 @@ def get_nft_hist(nft_id, num_days):
                            columns =['Time', 'Price_usd'])
 
     df_hist["Time"] = pd.to_datetime(df_hist["Time"], unit = "ms")
-    df_hist.set_index("Time", inplace = True)
+    #df_hist.set_index("Time", inplace = True)
 
     return df_hist
