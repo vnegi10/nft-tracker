@@ -8,10 +8,13 @@ def plot_nft_hist(nft_id, num_days):
     fig = px.line(df_hist,
                   x = "Time",
                   y = "Price_usd",
-                  title = f"Historical floor price for {nft_id}",
                   labels = dict(index = "Time", value = "Price [USD]"),
                   markers = True)
     fig = go.Figure(fig)
+
+    fig.update_layout(title_text = f"Historical floor price for {nft_id}",
+                      title_x = 0.5)
+
     return fig
 
 def plot_nft_markets(order_by, num_entries):
@@ -34,6 +37,7 @@ def plot_nft_markets(order_by, num_entries):
     
     fig.update_layout(height = 750,
                       width = 1250,
-                      title_text = "Prices compared for different NFTs")
+                      title_text = "Prices compared for different NFTs",
+                      title_x = 0.5)
     
     return fig
