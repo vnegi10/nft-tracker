@@ -24,3 +24,13 @@ def orderby_dropdown():
     value = 'h24_volume_native_desc')
     
     return dropdown
+
+def mode_dropdown():
+    dropdown = dcc.Dropdown(id = 'MODE',
+    options = [
+    {'label': 'Market data', 'value':'market_data' },
+    {'label': 'Historical floor price', 'value':'hist_floor_price'},
+    ],
+    value = 'market_data')
+    
+    return dropdown

@@ -1,6 +1,6 @@
 import dash
 from dash import html
-from components.dropdown import nft_dropdown, orderby_dropdown
+from components.dropdown import *
 from components.radioitems import duration_radiobutton, entries_radiobutton
 from dash import dcc
 
@@ -12,15 +12,19 @@ layout = html.Div(id = 'parent',
                   html.H1(id = 'H1', children = 'NFT Floor Price Tracker', 
                   style = {'textAlign':'center', 'marginTop':40, 'marginBottom':40}),
 
+                  # Select mode
+                  mode_dropdown(),
+                  html.Br(), # adds space between the rows
+
                   # NFT markets
                   orderby_dropdown(),
-                  html.Br(), # adds space between the rows
+                  html.Br(),
                   entries_radiobutton(),
                   dcc.Graph(id = 'bar_plot'),
 
                   # NFT historical data
                   nft_dropdown(),
-                  html.Br(), # adds space between the rows
+                  html.Br(),
                   duration_radiobutton(),
                   dcc.Graph(id = 'line_plot')
 ])
