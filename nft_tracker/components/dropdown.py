@@ -6,6 +6,8 @@ def nft_dropdown():
     {'label': 'bitcoin-frogs', 'value':'bitcoin-frogs' },
     {'label': 'mutant-ape-yacht-club', 'value':'mutant-ape-yacht-club'},
     {'label': 'mad-lads', 'value':'mad-lads'},
+    {'label': 'cryptopunks', 'value': 'cryptopunks'},
+    {'label': 'the-crop-collective', 'value': 'the-crop-collective'}
     ],
     value = 'pudgy-penguins')
     
