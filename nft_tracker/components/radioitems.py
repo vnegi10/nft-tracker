@@ -12,7 +12,7 @@ def duration_radiobutton():
 def window_radiobutton():
     radio = dcc.RadioItems(id = 'WINDOW_SIZE',
     options = ['1', '5', '10', '30', '60'],
-    value = '7',
+    value = '5',
     inline = True,
     )
     
