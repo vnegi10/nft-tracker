@@ -24,3 +24,5 @@ poetry shell
 ```
 poetry run python nft_tracker/app.py
 ```
+
+- Visit this URL: http://127.0.0.1:7000/
