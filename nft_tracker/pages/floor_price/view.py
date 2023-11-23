@@ -48,6 +48,13 @@ layout = html.Div(id = 'parent',
                   ], style = {'marginBottom': 10, 'marginTop': 10}),
                   duration_radiobutton(),
 
+                  html.Br(),
+
+                  html.Div([
+                  html.P('Moving Average Window [days]')
+                  ], style = {'marginBottom': 10, 'marginTop': 10}),
+                  window_radiobutton(),
+
                   # Add plot
                   dcc.Graph(id = 'plot')
 ])

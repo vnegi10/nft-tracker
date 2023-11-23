@@ -27,7 +27,9 @@ def get_nft_markets(order_by, num_entries):
             
     return pd.DataFrame(nft_all)
 
-def get_nft_hist(nft_id, num_days):
+def get_nft_hist(nft_id, num_days, window_size):
+
+    assert window_size <= num_days, "Window size is too big!"
 
     hist_params = {"days": num_days}
     hist_url = f"/nfts/{nft_id}/market_chart"
@@ -45,8 +47,14 @@ def get_nft_hist(nft_id, num_days):
         all_floor_price_usd.append(price)
 
     df_hist = pd.DataFrame(list(zip(all_time, all_floor_price_usd)),
-                           columns =['Time', 'Price_usd'])
+                           columns = ['Time', 'Price_usd'])
 
     df_hist["Time"] = pd.to_datetime(df_hist["Time"], unit = "ms")
+
+    # Calculate SMA
+    df_hist['SMA'] = df_hist['Price_usd'].rolling(window_size).mean()
+
+    # Calculate EMA
+    df_hist['EMA'] = df_hist['Price_usd'].ewm(span = window_size).mean()
     
     return df_hist

@@ -4,15 +4,28 @@ from utils.helpers import set_colors
 import plotly.express as px
 from plotly.subplots import make_subplots
 
-def plot_nft_hist(nft_id, num_days):
-    df_hist = get_nft_hist(nft_id, num_days)
-    fig = px.line(df_hist,
-                  x = "Time",
-                  y = "Price_usd",
-                  labels = dict(index = "Time", value = "Price [USD]"),
-                  markers = True)
-    fig = go.Figure(fig)
+def plot_nft_hist(nft_id, num_days, window_size):
+    df_hist = get_nft_hist(nft_id, num_days, window_size)
 
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+                  x = df_hist['Time'],
+                  y = df_hist['Price_usd'],
+                  mode = 'lines+markers',
+                  name = 'Daily price'))
+        
+    fig.add_trace(go.Scatter(
+                  x = df_hist['Time'],
+                  y = df_hist['SMA'],
+                  mode = 'lines',
+                  name = 'Simple Moving Average'))
+    
+    fig.add_trace(go.Scatter(
+                  x = df_hist['Time'],
+                  y = df_hist['EMA'],
+                  line = dict(dash='dot'),
+                  name = 'Exponential Moving Average'))
+    
     fig.update_layout(title_text = f"Historical floor price for {nft_id}",
                       title_x = 0.5)
 
