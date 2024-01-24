@@ -4,9 +4,9 @@ import json
 PUB_URL = "https://api.coingecko.com/api/v3"
 PRO_URL = "https://pro-api.coingecko.com/api/v3"
 
-# Get local API key
+# Get local Pro API key
 def get_key():
-    f = open("/home/vikas/Documents/CG_key.json")
+    f = open("/home/vikas/Documents/CG_pro_key.json")
     key_dict = json.load(f)
     return key_dict["key"]
 
