@@ -1,6 +1,6 @@
 from pages.floor_price.view import app
 from dash.dependencies import Input, Output
-from pages.floor_price.model import plot_nft_hist, plot_nft_markets
+from pages.floor_price.model import plot_nft_hist, plot_nft_markets, send_email
 
 @app.callback(
               Output(component_id = 'plot', component_property = 'figure'),
@@ -15,5 +15,7 @@ def graph_update(mode, nft_id, duration, window_size, order_by, num_entries):
 
     if mode == "market_data":
         return plot_nft_markets(order_by, int(num_entries))
-    else:
+    elif mode == "hist_floor_price":
         return plot_nft_hist(nft_id, int(duration), int(window_size))
+    else:
+        return send_email(nft_id, int(duration), int(window_size))

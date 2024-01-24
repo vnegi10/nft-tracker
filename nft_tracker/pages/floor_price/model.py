@@ -62,10 +62,14 @@ def send_email(nft_id, num_days, window_size):
 
     df_hist = get_nft_hist(nft_id, num_days, window_size)
 
-    if df_hist['Price_usd'].iloc[-1] > df_hist['SMA'].iloc[-1]:
-        body = f"Current price is higher than {window_size}-day SMA"
+    current_price = df_hist['Price_usd'].iloc[-1]
+    sma_price     = df_hist['SMA'].iloc[-1]
+    pert_change = (abs(current_price - sma_price) / sma_price) * 100
+
+    if current_price > sma_price :
+        body = f"Current price for {nft_id} is higher than {window_size}-day SMA by {pert_change}%"
     else:
-        body = f"Current price is lower than {window_size}-day SMA"
+        body = f"Current price for {nft_id} is lower than {window_size}-day SMA by {pert_change}%"
 
     try:
         send_price_alert('vikas.negi10@gmail.com', 'NFT Tracker', body)

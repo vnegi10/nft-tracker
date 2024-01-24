@@ -32,6 +32,7 @@ def mode_dropdown():
     options = [
     {'label': 'Market data', 'value':'market_data' },
     {'label': 'Historical floor price', 'value':'hist_floor_price'},
+    {'label': 'Alert email', 'value':'alert_email'},
     ],
     value = 'market_data')
     
