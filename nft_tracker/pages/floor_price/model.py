@@ -65,6 +65,7 @@ def send_email(nft_id, num_days, window_size):
     current_price = df_hist['Price_usd'].iloc[-1]
     sma_price     = df_hist['SMA'].iloc[-1]
     pert_change = (abs(current_price - sma_price) / sma_price) * 100
+    pert_change = round(pert_change, 2)
 
     if current_price > sma_price :
         body = f"Current price for {nft_id} is higher than {window_size}-day SMA by {pert_change}%"
