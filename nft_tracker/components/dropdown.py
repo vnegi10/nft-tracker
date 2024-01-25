@@ -7,7 +7,12 @@ def nft_dropdown():
     {'label': 'mutant-ape-yacht-club', 'value':'mutant-ape-yacht-club'},
     {'label': 'mad-lads', 'value':'mad-lads'},
     {'label': 'cryptopunks', 'value': 'cryptopunks'},
-    {'label': 'the-crop-collective', 'value': 'the-crop-collective'}
+    {'label': 'the-crop-collective', 'value': 'the-crop-collective'},
+    {'label': 'galxe-oat-v2', 'value': 'galxe-oat-v2'},
+    {'label': 'pudgy-penguins', 'value': 'pudgy-penguins'},
+    {'label': 'blendkemon', 'value': 'blendkemon'},
+    {'label': 'autoglyphs', 'value': 'autoglyphs'},
+    {'label': 'azuki', 'value': 'azuki'}
     ],
     value = 'pudgy-penguins')
     
